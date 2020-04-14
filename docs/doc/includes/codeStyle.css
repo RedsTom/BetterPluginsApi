@@ -1,0 +1,178 @@
+
+mcode {
+    color: blue !important;
+    padding: 5px;
+    font-size: 15px;
+    background: #e9e9e9;
+    border-radius: 4px;
+    font-style: italic;
+    font-family: "Consolas", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace !important;
+}
+
+mcode override {
+    color: #4b4b4b !important;
+    font-weight: normal;
+    font-style: normal;
+}
+
+mcode method {
+    color: #ff8700;
+    font-weight: normal;
+    font-style: normal;
+}
+
+mcode class {
+    color: #006f2b;
+    font-style: normal;
+    font-weight: bold;
+}
+
+mcode punc {
+    color: #ff0079;
+    font-style: normal;
+    font-weight: normal;
+}
+
+mcode generic {
+    color: #a200ff;
+    font-style: normal;
+    font-weight: normal;
+}
+
+mcode ymlg {
+    font-style: normal;
+    font-weight: normal;
+}
+
+mcode yml {
+    color: #ff0079;
+    font-style: normal;
+    font-weight: normal;
+}
+
+mcode ymlt {
+    color: #0e2231;
+    font-style: normal;
+    font-weight: normal;
+}
+
+mcode error {
+    text-decoration: wavy underline;
+    text-decoration-color: #ff0000;
+    display: inline-block;
+    cursor: url("../../assets/img/cursors/right_arrow.png"), url("../../assets/img/cursors/right_arrow.png"), auto;
+}
+
+mcode comment {
+    color: grey;
+    font-style: italic;
+    font-weight: normal;
+}
+
+mcode attr {
+    color: #0C9A9A;
+    font-style: normal;
+    font-weight: normal;
+}
+
+mcode str {
+    color: #0E9A00;
+    font-style: normal;
+    font-weight: normal;
+}
+
+cmd {
+    color: #229f6a;
+    font-weight: bolder;
+}
+
+.step {
+    color: #4b4b4b;
+    font-size: 20px;
+}
+
+.step-content {
+    margin-left: 25px;
+    margin-bottom: 25px;
+}
+
+.example {
+    border-radius: 4px;
+}
+
+.disclaimer {
+    color: lightgrey;
+    cursor: default;
+    transition: 300ms;
+}
+
+.disclaimer:hover {
+    color: #0e2231;
+    transition: 300ms;
+}
+
+mcode.full {
+    padding-top: 25px;
+    padding-bottom: 25px;
+    padding-left: 25px;
+    display: block;
+}
+
+a {
+    color: #00a8e6;
+}
+
+a:hover {
+    color: #0C9A9A;
+}
+
+#api-content {
+    padding-left: 75px;
+    margin-top: 25px;
+    margin-bottom: 75px;
+}
+
+.category-title {
+    padding-left: 50px;
+}
+
+.dl-category-title {
+    padding-left: 50px;
+    font-size: 50px;
+}
+
+.dl p {
+    font-size: 25px;
+}
+
+
+file {
+    color: #000;
+    background: transparent;
+    border-radius: 4px;
+    padding: 5px;
+    font-weight: bold;
+}
+
+tab {
+    margin-left: 50px;
+}
+
+.must li {
+    color: lightslategrey;
+}
+
+.must li b {
+    color: grey;
+    font-weight: normal;
+}
+
+.must li u {
+    text-decoration: none;
+    transition: 300ms;
+}
+
+.must li u:hover {
+    transition: 300ms;
+    font-weight: bold;
+}

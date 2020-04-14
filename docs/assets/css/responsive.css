@@ -1,0 +1,100 @@
+/* Normal desktop :1200px. */
+@media (min-width: 1200px) {
+    .dlbtns {
+        left: 35%;
+        right: 50%;
+        position: relative;
+    }
+
+    .doc-nav {
+        padding-right: 20%;
+    }
+
+    .doc-content {
+        margin-left: 20%;
+    }
+
+    #dl {
+        padding-right: 50%;
+    }
+}
+
+
+/* Normal desktop :992px. */
+@media (min-width: 992px) and (max-width: 1200px) {
+    .dlbtns {
+        left: 35%;
+        right: 50%;
+        position: relative;
+    }
+
+    #dl {
+        padding-right: 50%;
+    }
+
+    .doc-nav {
+        padding-right: 15%;
+    }
+
+    .doc-content {
+        margin-left: 15%;
+    }
+}
+
+
+/* Tablet desktop :768px. */
+@media (min-width: 768px) and (max-width: 991px) {
+    .dlbtns {
+        left: 35%;
+        right: 50%;
+        position: relative;
+    }
+
+    #dl {
+        padding-right: 25%;
+    }
+
+    .doc-nav {
+        padding-right: 10%;
+    }
+
+    .doc-content {
+        margin-left: 10%;
+    }
+}
+
+
+/* small mobile :320px. */
+@media (max-width: 767px) {
+    .dlbtns {
+        width: 10px;
+    }
+
+    #dl {
+        padding-right: 0%;
+    }
+
+    .doc-nav {
+        width: 0;
+    }
+}
+
+/* Large Mobile :480px. */
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+    .container {
+        width: 450px
+    }
+
+    .dlbtns {
+        width: 10px;
+    }
+
+    #dl {
+        padding-right: 0%;
+    }
+
+    .doc-nav {
+        width: 0;
+    }
+}
+
