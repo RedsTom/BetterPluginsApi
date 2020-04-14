@@ -15,11 +15,13 @@ public abstract class BetterCooldownCommandExecutor extends BetterCommandExecuto
     private final Map<UUID, Long> cooldowns = Maps.newHashMap();
     private final long cooldownInSeconds;
     private final String permission;
+    private final String bypassPermission;
 
-    public BetterCooldownCommandExecutor(String name, String cmd, String permissions, long cooldownInSeconds) {
+    public BetterCooldownCommandExecutor(String name, String cmd, String permissions, long cooldownInSeconds, String bypassPermission) {
         super(name, cmd, permissions);
         this.cooldownInSeconds = cooldownInSeconds + 1;
         this.permission = permissions;
+        this.bypassPermission = bypassPermission;
     }
 
     @Override
@@ -41,7 +43,7 @@ public abstract class BetterCooldownCommandExecutor extends BetterCommandExecuto
             return false;
         }
 
-        if (sender.hasPermission("moderateur.use")) {
+        if (sender.hasPermission(bypassPermission)) {
             try {
                 if (run(sender, args)) {
                     sendBadCommandUsage(sender);
@@ -66,7 +68,7 @@ public abstract class BetterCooldownCommandExecutor extends BetterCommandExecuto
         }
 
         if (ZonedDateTime.now().toInstant().getEpochSecond() < cooldowns.get(player.getUniqueId())) {
-            sendMessage(sender, "&cSorry, but you will be able to use this command again in &b" + getCooldown((Player) sender) + "&cseconds");
+            sendCooldownNotPassedMessage(player);
         } else {
             setCooldown(player);
             try {
@@ -80,6 +82,8 @@ public abstract class BetterCooldownCommandExecutor extends BetterCommandExecuto
 
         return false;
     }
+
+    protected abstract void sendCooldownNotPassedMessage(Player player);
 
     protected void setCooldown(Player player) {
         long zoneDateTime = ZonedDateTime.now().toInstant().getEpochSecond();
