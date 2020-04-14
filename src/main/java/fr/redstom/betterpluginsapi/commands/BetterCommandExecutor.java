@@ -11,23 +11,25 @@ public abstract class BetterCommandExecutor implements CommandExecutor {
     /**
      * Prefix of the command
      */
-    private String prefix;
+    private final String prefix;
 
     /**
      * Name of the command (for the syntax)
      */
-    private String commandName;
+    private final String commandName;
 
     /**
      * Permission of the command
      */
-    private String permission;
+    private final String permission;
 
 
     /**
      * Constructor of the class ; it asks the permission of the commands
      *
-     * @param permission Permission of the command
+     * @param prefix      Prefix of the command for the {@link BetterCommandExecutor#sendMessage(CommandSender, String)}
+     * @param commandName Name of the command for the {@link BetterCommandExecutor#sendBadCommandUsage(CommandSender)}
+     * @param permission  Permission of the command
      */
     public BetterCommandExecutor(String prefix, String commandName, String permission) {
         this.prefix = prefix;
@@ -40,13 +42,15 @@ public abstract class BetterCommandExecutor implements CommandExecutor {
      *
      * @param sender Sender of the command
      * @param args   Arguments of the command
+     * @return The good usage of the command when TRUE is not good and FALSE is good.
+     * @throws CommandException Error while command executing. Sent to the player and not the console
      */
     public abstract boolean run(CommandSender sender, String[] args) throws CommandException;
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (!(sender.hasPermission(permission))) {
-            sendMessage(sender, "&cSorry, but you don't have permission to perform this command !");
+            sendNoPermission(sender);
         } else {
             try {
                 if (run(sender, args)) {
@@ -59,6 +63,10 @@ public abstract class BetterCommandExecutor implements CommandExecutor {
         return false;
     }
 
+    protected void sendNoPermission(CommandSender sender) {
+        sendMessage(sender, "&cSorry, but you don't have permission to perform this command !");
+    }
+
     /**
      * Send a message to a {@link CommandSender}
      *
@@ -69,5 +77,22 @@ public abstract class BetterCommandExecutor implements CommandExecutor {
         sender.sendMessage(ChatColor.translateAlternateColorCodes('&', prefix + "&8 » &r" + message));
     }
 
+    /**
+     * Send the bad command usage to the sender | To define
+     *
+     * @param sender Sender to send the command usage
+     */
     protected abstract void sendBadCommandUsage(CommandSender sender);
+
+    public String getCommandName() {
+        return commandName;
+    }
+
+    public String getPermission() {
+        return permission;
+    }
+
+    public String getPrefix() {
+        return prefix;
+    }
 }
