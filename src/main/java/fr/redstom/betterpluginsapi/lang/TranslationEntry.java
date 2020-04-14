@@ -58,6 +58,8 @@ public class TranslationEntry {
 
         String result;
         result = properties.getProperty(messageKey);
+        if (result.isEmpty())
+            return ChatColor.translateAlternateColorCodes('&', "&cError, translation message cannot be found !");
         return ChatColor.translateAlternateColorCodes('&', result);
 
     }
