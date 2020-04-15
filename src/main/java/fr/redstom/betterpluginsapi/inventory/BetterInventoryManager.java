@@ -77,6 +77,8 @@ public class BetterInventoryManager implements Listener {
             }
         }
 
+        if (sInventory == null) return;
+
         sInventory.onClose(event);
     }
 
