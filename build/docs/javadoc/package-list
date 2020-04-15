@@ -1,6 +1,8 @@
 fr.redstom.betterpluginsapi.commands
+fr.redstom.betterpluginsapi.commands.exceptions
 fr.redstom.betterpluginsapi.data
 fr.redstom.betterpluginsapi.events
+fr.redstom.betterpluginsapi.gsonmanager
 fr.redstom.betterpluginsapi.inventory
 fr.redstom.betterpluginsapi.items
 fr.redstom.betterpluginsapi.lang
