@@ -11,7 +11,7 @@ import java.util.List;
 
 public class BetterInventoryManager implements Listener {
 
-    private static List<BetterInventory> inventoryList = new ArrayList<>();
+    private static final List<BetterInventory> inventoryList = new ArrayList<>();
 
     /**
      * The method to add an inventory to the list
@@ -48,25 +48,36 @@ public class BetterInventoryManager implements Listener {
     @EventHandler
     public void onInventoryClick(InventoryClickEvent event) {
 
-        getInventories().forEach(inventory -> {
+        BetterInventory sInventory = null;
+
+        for (BetterInventory inventory : getInventories()) {
             if (event.getClickedInventory() == null || event.getCurrentItem() == null || event.getCurrentItem().getItemMeta() == null)
                 return;
             if (event.getClickedInventory().getName().equalsIgnoreCase(inventory.getInventory().getName())) {
-                inventory.onClick(event);
-                event.setCancelled(true);
+                sInventory = inventory;
             }
-        });
+        }
+
+        if (sInventory == null) return;
+
+        sInventory.onClick(event);
+        event.setCancelled(true);
 
     }
 
     @EventHandler
     public void onInventoryClose(InventoryCloseEvent event) {
-        getInventories().forEach(inventory -> {
+
+        BetterInventory sInventory = null;
+
+        for (BetterInventory inventory : getInventories()) {
             if (event.getInventory() == null) return;
             if (event.getInventory().getName().equalsIgnoreCase(inventory.getInventory().getName())) {
-                inventory.onClose(event);
+                sInventory = inventory;
             }
-        });
+        }
+
+        sInventory.onClose(event);
     }
 
 }
