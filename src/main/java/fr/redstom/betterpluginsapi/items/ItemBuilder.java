@@ -1,5 +1,6 @@
 package fr.redstom.betterpluginsapi.items;
 
+import com.google.common.collect.Lists;
 import org.bukkit.ChatColor;
 import org.bukkit.Color;
 import org.bukkit.DyeColor;
@@ -24,7 +25,7 @@ import java.util.Map;
  */
 @SuppressWarnings("deprecated")
 public class ItemBuilder {
-    private ItemStack is;
+    private final ItemStack is;
 
     /**
      * Create a new ItemBuilder from scratch.
@@ -180,7 +181,11 @@ public class ItemBuilder {
      */
     public ItemBuilder setLore(String... lore) {
         ItemMeta im = is.getItemMeta();
-        im.setLore(Arrays.asList(lore));
+        List<String> lores = Lists.newArrayList();
+        for (String s : lore) {
+            lores.add(ChatColor.translateAlternateColorCodes('&', s));
+        }
+        im.setLore(lores);
         is.setItemMeta(im);
         return this;
     }
