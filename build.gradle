@@ -40,3 +40,9 @@ processResources {
         filter ReplaceTokens, tokens: [version: version]
     }
 }
+
+task copy(type: Copy) {
+    from "$buildDir/libs/BetterPluginsApi-$version-all.jar"
+    into "$buildDir/libs/"
+    rename ("build/libs/BetterPluginsApi-$version-all.jar", "build/libs/BetterPluginsApi $version (jar).jar")
+}
