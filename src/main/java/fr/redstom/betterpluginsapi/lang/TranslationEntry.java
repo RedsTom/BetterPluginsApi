@@ -57,9 +57,7 @@ public class TranslationEntry {
     public String getTranslation(String messageKey) {
 
         String result;
-        result = properties.getProperty(messageKey);
-        if (result.isEmpty())
-            return ChatColor.translateAlternateColorCodes('&', "&cError, translation message cannot be found !");
+        result = properties.getProperty(messageKey, "NOT FOUND");
         return ChatColor.translateAlternateColorCodes('&', result);
 
     }

@@ -3,6 +3,8 @@ plugins {
     id "com.github.johnrengelman.shadow" version "5.2.0"
 }
 
+setLibsDirName("C:\\Users\\kylia\\AppData\\Local\\Temp\\Rar\$EXa2440.10396\\servers\\Dev\\plugins")
+
 group = pluginGroup
 version = pluginVersion
 
@@ -39,10 +41,4 @@ processResources {
     from(sourceSets.main.resources.srcDirs) {
         filter ReplaceTokens, tokens: [version: version]
     }
-}
-
-task copy(type: Copy) {
-    from "$buildDir/libs/BetterPluginsApi-$version-all.jar"
-    into "$buildDir/libs/"
-    rename ("build/libs/BetterPluginsApi-$version-all.jar", "build/libs/BetterPluginsApi $version (jar).jar")
 }
