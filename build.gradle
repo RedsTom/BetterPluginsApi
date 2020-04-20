@@ -3,8 +3,6 @@ plugins {
     id "com.github.johnrengelman.shadow" version "5.2.0"
 }
 
-setLibsDirName("C:\\Users\\kylia\\AppData\\Local\\Temp\\Rar\$EXa2440.10396\\servers\\Dev\\plugins")
-
 group = pluginGroup
 version = pluginVersion
 
