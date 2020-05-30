@@ -43,4 +43,4 @@ Dependency
 
 -> Replace TAG with the current release tag of BetterPluginsApi
 
-###Website : https://redstom.fr/betterpluginsapi
+#Website : https://redstom.fr/betterpluginsapi
