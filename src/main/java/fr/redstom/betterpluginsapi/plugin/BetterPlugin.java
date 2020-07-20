@@ -3,6 +3,7 @@ package fr.redstom.betterpluginsapi.plugin;
 import fr.redstom.betterpluginsapi.commands.BetterCommandExecutor;
 import fr.redstom.betterpluginsapi.events.BetterEventExecutor;
 import fr.redstom.betterpluginsapi.inventory.BetterInventoryManager;
+import fr.redstom.betterpluginsapi.item.Items;
 import org.bukkit.event.Event;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
@@ -25,6 +26,7 @@ public abstract class BetterPlugin extends JavaPlugin {
         registerCommands();
         registerEvents();
         onPluginEnabling();
+        registerEvent(new Items());
     }
 
     @Override

@@ -1,4 +1,4 @@
-package fr.redstom.betterpluginsapi.items;
+package fr.redstom.betterpluginsapi.item;
 
 import com.google.common.collect.Lists;
 import org.bukkit.ChatColor;
@@ -13,7 +13,6 @@ import org.bukkit.inventory.meta.LeatherArmorMeta;
 import org.bukkit.inventory.meta.SkullMeta;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -192,6 +191,17 @@ public class ItemBuilder {
     }
 
     /**
+     * Sets the amount
+     *
+     * @param amount Amount of items
+     * @returns this
+     */
+    public ItemBuilder setAmount(int i) {
+        is.setAmount(i);
+        return this;
+    }
+
+    /**
      * Re-sets the lore.
      *
      * @param lore The lore to set it to.
@@ -290,7 +300,7 @@ public class ItemBuilder {
      */
     @Deprecated
     public ItemBuilder setWoolColor(DyeColor color) {
-        if (!is.getType().equals(Material.WOOL)) return this;
+        if (!is.getType().equals(Material.LEGACY_WOOL)) return this;
         this.is.setDurability(color.getDyeData());
         return this;
     }
