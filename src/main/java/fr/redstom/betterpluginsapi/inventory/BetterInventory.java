@@ -8,8 +8,8 @@ import org.bukkit.inventory.Inventory;
 
 public abstract class BetterInventory implements Listener {
 
-    private Inventory inventory;
-    private Player player;
+    private final Inventory inventory;
+    private final Player player;
 
     /**
      * The constructor of the class
